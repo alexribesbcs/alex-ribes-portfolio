@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alex Ribes | Photography & Design</title>
+        <!-- Autoría -->
+        <meta name="author" content="Alejandro Ribes Barcos">
+        <!-- Descripción -->
+        <meta name="description" content="Aviso legal">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Safari - Previsualización en marcadores -->
+        <link rel="apple-touch-icon" sizes="152x152" href="img/components/logos/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/components/logos/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="img/components/logos/touch-icon-ipad-retina.png">
+        <!-- Color del navegador -->
+        <meta name="theme-color" content="#04232F">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Alex Ribes Photography & Design">
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="img/components/open-graph-image.webp">
+        <meta property="og:url" content="https://alexribesbcs.github.io/alex-ribes-portfolio/"/>
+        <!-- Tipografías - Adobe Fonts - Lust -->
+        <link rel="stylesheet" href="https://use.typekit.net/qey7gbu.css">
+        <!-- Tipografías - Google Fonts - Open Sans variable -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <!-- JavaScript - Alpine -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- CSS - Normalize -->
+        <link rel="stylesheet" href="css/vendors/normalize.css" type="text/css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/mobile.css" type="text/css" media="all and (max-width: 760px)">
+        <link rel="stylesheet" href="css/desktop.css" type="text/css" media="all and (min-width: 761px)">
+    </head>
+    <body>
+        <!-- ------------------------- Header -->
+        <header class="header" id="header">
+            <div class="container__header">
+                <!-- Checkbox para abrir y cerrar el menú hanburguesa -->
+                <input
+                    type="checkbox"
+                    class="hamburguesa__input"
+                    id="hamburguesa__input"
+                    aria-label="Menú de navegación"
+                />
+                <!-- Logo -->
+                <a href="index.html">
+                    <img
+                        src="img/components/logos/isotipo-p.png"
+                        alt="Alex Ribes Photography & Design"
+                        class="logo__icono"
+                        draggable="false"
+                    >
+                </a>
+                <!-- Menú de navegación -->
+                <nav
+                    class="nav"
+                    role="navigation"
+                    x-data="{ open: false }"
+                    @mouseleave="open = false"
+                >
+                    <ul class="nav__lista">
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <button
+                                    class="nav__enlace nav__enlace--button-reset linkAndArrow--half-underline"
+                                    @click="open = true"
+                                    @mouseover="open = true"
+                                ><span>Portfolio</span></button>
+                            </li>
+                        </div>
+                        <!-- Lista anidada de Portfolio -->
+                        <ul
+                            class="nav__sublista"
+                            :class="open ? 'nav__sublista--show' : 'nav__sublista--hide'"
+                        >
+                            <li class="nav__subitem">
+                                <a
+                                    href="photography.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Fotografía</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="web-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño web</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="graphic-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño gráfico</span></a>
+                            </li>
+                            <!-- <li class="nav__subitem">
+                                <a
+                                    href="branding.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Branding</span></a>
+                            </li> -->
+                        </ul>
+                        <!-- Fin Lista anidada de Portfolio -->
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="about.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Sobre mi</span></a>
+                            </li>
+                        </div>
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="contact.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Contacto</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+                <!-- Botón hamburguesa -->
+                <label class="hamburguesa" for="hamburguesa__input">
+                    <svg viewBox="0 0 32 32">
+                        <path class="linea--superior-inferior" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="linea" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+        </header>
+        <!-- Main -->
+        <main>
+            <div class="container">
+                <h1 class="texto--color-principal">Política de privacidad</h1>
+                <p>Alejandro Ribes Barcos ha adecuado esta web a las exigencias de la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal (LOPD), y al Real Decreto 1720/2007, de 21 de diciembre, conocido como el Reglamento de desarrollo de la LOPD. Cumple también con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 relativo a la protección de las personas físicas (RGPD), así como con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSICE o LSSI).</p>
+                <h2 class="texto--color-principal">Responsable del tratamiento de tus datos personales</h2>
+                <ul>
+                    <li>Identidad del Responsable: Alejandro Ribes Barcos</li>
+                    <li>NIF/CIF: 44532273H</li>
+                    <li>Dirección: Calle Serpis 21-1, 46021, Valencia</li>
+                    <li>Correo electrónico: alex.ribes.barcos@gmail.com</li>
+                </ul>
+                <p>A efectos de lo previsto en el Reglamento General de Protección de Datos antes citado, los datos personales que me envíes a través de los formularios de la web, recibirán el tratamiento de datos de “Usuarios de la web y suscriptores”. Para el tratamiento de datos de mis usuarios, implemento todas las medidas técnicas y organizativas de seguridad establecidas en la legislación vigente.</p>
+                <h2 class="texto--color-principal">¿Cómo hemos obtenido tus datos?</h2>
+                <p>Los datos personales que tratamos en Alex Ribes Photography & Design proceden de:</p>
+                <ul>
+                    <li>Formulario de contacto</li>
+                </ul>
+                <h2 class="texto--color-principal">Derechos de usuarios</h2>
+                <p>Cualquier persona tiene derecho a obtener confirmación sobre si en Alex Ribes Photography & Design estoy tratando datos personales que me conciernen, o no.</p>
+                <p>Las personas interesadas tienen derecho a:</p>
+                <ul>
+                    <li>Solicitar el acceso a los datos personales relativos al interesado.</li>
+                    <li>Solicitar su rectificación o supresión.</li>
+                    <li>Solicitar la limitación de su tratamiento.</li>
+                    <li>Oponerse al tratamiento.</li>
+                    <li>Solicitar la portabilidad de los datos.</li>
+                </ul>
+                <p>Los interesados podrán acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaré para el ejercicio o la defensa de reclamaciones.</p>
+                <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. Alex Ribes Photography & Design dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones. Cómo interesado, tienes derecho a recibir los datos personales que te incumban, que me hayas facilitado y en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable del tratamiento cuando:</p>
+                <ul>
+                    <li>El tratamiento esté basado en el consentimiento.</li>
+                    <li>Los datos hayan sido facilitados por la persona interesada.</li>
+                    <li>El tratamiento se efectúe por medios automatizados.</li>
+                </ul>
+                <p>Al ejercer tu derecho a la portabilidad de los datos, tendrás derecho a que los datos personales se transmitan directamente de responsable a responsable cuando sea técnicamente posible. Los interesados también tendrán derecho a la tutela judicial efectiva y a presentar una reclamación ante la autoridad de control, en este caso, la Agencia Española de Protección de Datos, si consideran que el tratamiento de datos personales que le conciernen infringe el Reglamento.</p>
+                <h2 class="texto--color-principal">Finalidad de sus datos personales</h2>
+                <p>Cuando un usuario se conecta con esta web por ejemplo para mandar un correo al titular, registrarse, suscribirse o realizar alguna contratación, está facilitando información de carácter personal de la que es responsable Alex Ribes Photography & Design. Esa información puede incluir datos de carácter personal como pueden ser tu dirección IP, nombre, dirección física, dirección de correo electrónico, número de teléfono, y otra información. Al facilitar esta información, el usuario da su consentimiento para que su información sea recopilada, utilizada, gestionada y almacenada por Alex Ribes Photography & Design, sólo como se describe en el Aviso Legal y en la presente Política de Privacidad. En Alex Ribes Photography & Design existen diferentes sistemas de captura de información personal y trato la información que me facilitan las personas interesadas con el siguiente fin por cada sistema de captura (formularios):</p>
+                <ul>
+                    <li>Formulario de contacto: Solicitamos los siguientes datos personales: Nombre, Apellidos, Email y tu teléfono, para responder a los requerimientos de los usuarios de Alex Ribes Photography & Design. Por ejemplo, podemos utilizar esos datos para responder a tu solicitud y dar respuesta a las dudas, quejas, comentarios o inquietudes que puedas tener relativas a la información incluida en la web, los servicios que se prestan a través de la web, el tratamiento de sus datos personales, cuestiones referentes a los textos legales incluidos en la web, así como cualesquiera otras consultas que puedas tener y que no estén sujetas a las condiciones de contratación.</li>
+                </ul>
+                <p>De acuerdo a lo establecido en el reglamento general de protección de datos europeo (RGPD) 2016/679, Alex Ribes Photography & Design con domicilio en Calle Serpis 21-1, será responsable del tratamiento de los datos correspondientes a Usuarios de la web y suscriptores. Alex Ribes Photography & Design no vende, alquila ni cede datos de carácter personal que puedan identificar al usuario, ni lo hará en el futuro, a terceros sin el consentimiento previo. Sin embargo, en algunos casos se pueden realizar colaboraciones con otros profesionales, en esos casos, se requerirá consentimiento a los usuarios informando sobre la identidad del colaborador y la finalidad de la colaboración. Siempre se realizará con los más estrictos estándares de seguridad.</p>
+                <h2 class="texto--color-principal">Legitimación para el tratamiento de sus datos</h2>
+                <p>La base legal para el tratamiento de sus datos es: el consentimiento. Para contactar o realizar comentarios en esta web se requiere el consentimiento con esta política de privacidad. La oferta prospectiva o comercial de productos y servicios está basada en el consentimiento que se le solicita, sin que en ningún caso la retirada de este consentimiento condicione la ejecución del contrato de suscripción.</p>
+                <h2 class="texto--color-principal">Categoría de los datos recogidos</h2>
+                <p>Las categorías de datos que se tratan son datos identificativos. En ningún caso se tratan categorías de datos especialmente protegidos.</p>
+                <h2 class="texto--color-principal">¿Por cuánto tiempo conservaré sus datos?</h2>
+                <p>Los datos personales proporcionados se conservarán hasta que el interesado solicite su supresión de forma expresa.</p>
+                <h2 class="texto--color-principal">Secreto y seguridad de los datos</h2>
+                <p>Alex Ribes Photography & Design se compromete en el uso y tratamiento de los datos incluidos personales de los usuarios, respetando su confidencialidad y a utilizarlos de acuerdo con la finalidad del mismo, así como a dar cumplimiento a su obligación de guardarlos y adaptar todas las medidas para evitar la alteración, pérdida, tratamiento o acceso no autorizado, de conformidad con lo establecido en la normativa vigente de protección de datos. Alex Ribes Photography & Design no puede garantizar la absoluta inexpugnabilidad de la red Internet y por tanto la violación de los datos mediante accesos fraudulentos a ellos por parte de terceros.</p>
+                <p>Con respecto a la confidencialidad del procesamiento, Alex Ribes Photography & Design se asegurará de que cualquier persona que esté autorizada por Alex Ribes Photography & Design para procesar los datos del cliente (incluido su personal, colaboradores y prestadores), estará bajo la obligación apropiada de confidencialidad (ya sea un deber contractual o legal). Cuando se presente algún incidente de seguridad, al darse cuenta el titular legítimo de Alex Ribes Photography & Design, deberá notificar al Cliente sin demoras indebidas y deberá proporcionar información oportuna relacionada con el Incidente de Seguridad tal como se conozca o cuando el Cliente lo solicite razonablemente.</p>
+                <h2 class="texto--color-principal">Exactitud y veracidad de los datos</h2>
+                <p>Como usuario, eres el único responsable de la veracidad y corrección de los datos que remitas a Alex Ribes Photography & Design exonerando a Alex Ribes Photography & Design, de cualquier responsabilidad al respecto. Los usuarios garantizan y responden, en cualquier caso, de la exactitud, vigencia y autenticidad de los datos personales facilitados, y se comprometen a mantenerlos debidamente actualizados. El usuario acepta proporcionar información completa y correcta en el formulario de contacto o suscripción.</p>
+                <h2 class="texto--color-principal">Aceptación y consentimiento</h2>
+                <p>El usuario declara haber sido informado de las condiciones sobre protección de datos de carácter personal, aceptando y consintiendo el tratamiento de los mismos por parte de Alex Ribes Photography & Design en la forma y para las finalidades indicadas en esta política de privacidad.</p>
+                <h2 class="texto--color-principal">Revocabilidad</h2>
+                <p>El consentimiento prestado, tanto para el tratamiento como para la cesión de los datos de los interesados, es revocable en cualquier momento comunicándolo a Alex Ribes Photography & Design en los términos establecidos en esta Política para el ejercicio de los derechos ARCO. Esta revocación en ningún caso tendrá carácter retroactivo.</p>
+                <h2 class="texto--color-principal">Cambios en la política de privacidad</h2>
+                <p>Alex Ribes Photography & Design se reserva el derecho a modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales, así como a prácticas de la industria. En dichos supuestos, Alex Ribes Photography & Design anunciará en esta página los cambios introducidos con razonable antelación a su puesta en práctica.</p>
+                <h2 class="texto--color-principal">Correos comerciales</h2>
+                <p>De acuerdo con la LSSICE, Alex Ribes Photography & Design no realiza prácticas de SPAM, por lo que no envía correos comerciales por vía electrónica que no hayan sido previamente solicitados o autorizados por el usuario. Conforme a lo dispuesto en la Ley 34/2002 de Servicios de la Sociedad de la Información y de comercio electrónico, Alex Ribes Photography & Design se compromete a no enviar comunicaciones de carácter comercial sin identificarlas debidamente.</p>
+                <p>Documento revisado el <time datetime="2023-07-10">10 de julio de 2023</time>.</p>
+            </div>
+        </main>
+        <!-- ------------------------- Footer -->
+        <footer class="footer">
+            <div class="container__footer">
+                <div class="footer__flex-wrapper">
+                    <!-- Logo -->
+                    <a href="index.html" class="footer__logo-enlace">
+                        <img
+                            src="img/components/logos/imagotipo-h-b.png"
+                            alt="Alex Ribes Photography & Design"
+                            class="footer__logo-icono"
+                            draggable="false"
+                        >
+                    </a>
+                    <!-- Redes sociales -->
+                    <div class="footer__social">
+                        <p class="footer__social-texto">Redes sociales</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.behance.net/alexribesb3569" target="_blank">
+                                    <img
+                                        src="img/components/social/behance.svg"
+                                        alt="Behance"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/ribes_alex?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+                                    <img
+                                        src="img/components/social/instagram.svg"
+                                        alt="Instagram"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/alejandro-ribes-barcos/" target="_blank">
+                                    <img
+                                        src="img/components/social/linkedin.svg"
+                                        alt="LinkedIn"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Contacta -->
+                    <div class="footer__contacta-wrapper">
+                        <a href="contact.html" class="footer__contacta">Contacta</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <p class="footer__copyright">Copyright©2023 All rights reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

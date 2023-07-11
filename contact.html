@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alex Ribes | Contacta</title>
+        <!-- Autoría -->
+        <meta name="author" content="Alejandro Ribes Barcos">
+        <!-- Descripción -->
+        <meta name="description" content="Ponte en contacto">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Safari - Previsualización en marcadores -->
+        <link rel="apple-touch-icon" sizes="152x152" href="img/components/logos/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/components/logos/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="img/components/logos/touch-icon-ipad-retina.png">
+        <!-- Color del navegador -->
+        <meta name="theme-color" content="#04232F">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Alex Ribes Photography & Design">
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="img/components/open-graph-image.webp">
+        <meta property="og:url" content="https://alexribesbcs.github.io/alex-ribes-portfolio/"/>
+        <!-- Tipografías - Adobe Fonts - Lust -->
+        <link rel="stylesheet" href="https://use.typekit.net/qey7gbu.css">
+        <!-- Tipografías - Google Fonts - Open Sans variable -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <!-- JavaScript - Alpine -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- CSS - Normalize -->
+        <link rel="stylesheet" href="css/vendors/normalize.css" type="text/css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/mobile.css" type="text/css" media="all and (max-width: 760px)">
+        <link rel="stylesheet" href="css/desktop.css" type="text/css" media="all and (min-width: 761px)">
+    </head>
+    <body>
+         <!-- ------------------------- Header -->
+        <header class="header" id="header">
+            <div class="container__header">
+                <!-- Checkbox para abrir y cerrar el menú hanburguesa -->
+                <input
+                    type="checkbox"
+                    class="hamburguesa__input"
+                    id="hamburguesa__input"
+                    aria-label="Menú de navegación"
+                />
+                <!-- Logo -->
+                <a href="index.html">
+                    <img
+                        src="img/components/logos/isotipo-p.png"
+                        alt="Alex Ribes Photography & Design"
+                        class="logo__icono"
+                        draggable="false"
+                    >
+                </a>
+                <!-- Menú de navegación -->
+                <nav
+                    class="nav"
+                    x-data="{ open: false }"
+                    @mouseleave="open = false"
+                >
+                    <ul class="nav__lista">
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <button
+                                    class="nav__enlace nav__enlace--button-reset linkAndArrow--half-underline"
+                                    @click="open = true"
+                                    @mouseover="open = true"
+                                ><span>Portfolio</span></button>
+                            </li>
+                        </div>
+                        <!-- Lista anidada de Portfolio -->
+                        <ul
+                            class="nav__sublista"
+                            :class="open ? 'nav__sublista--show' : 'nav__sublista--hide'"
+                        >
+                            <li class="nav__subitem">
+                                <a
+                                    href="photography.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Fotografía</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="web-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño web</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="graphic-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño gráfico</span></a>
+                            </li>
+                            <!-- <li class="nav__subitem">
+                                <a
+                                    href="branding.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Branding</span></a>
+                            </li> -->
+                        </ul>
+                        <!-- Fin Lista anidada de Portfolio -->
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="about.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Sobre mi</span></a>
+                            </li>
+                        </div>
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="contact.html"
+                                    class="nav__enlace nav--active"
+                                ><span>Contacto</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+                <!-- Botón hamburguesa -->
+                <label class="hamburguesa" for="hamburguesa__input">
+                    <svg viewBox="0 0 32 32">
+                        <path class="linea--superior-inferior" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="linea" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+        </header>
+        <!-- Main -->
+        <main>
+            <div class="container">
+                <section class="container__contact">
+                    <!-- Tñitulo -->
+                    <hgroup class="contact__textgroup">
+                        <h1 class="contact__titulo texto--color-principal"><span class="line-break-mobile">Hagamos algo</span> <span class="line-break-mobile">increíble juntos</span></h1>
+                        <p class="contact__texto">Ya sea rellenando el formulario, enviándome un correo o mandándome un Whatsapp, cuéntame qué es aquello que necesitas de mi. Te prometo que en menos de 48h tendrás mi respuesta.</p>
+                    </hgroup>
+                    <!-- Formulario de contacto -->
+                    <form class="contact__form" name="contacto" autocomplete="on">
+                        <!-- Nombre -->
+                        <div class="form__grid-wrapper--nombre">
+                            <label class="form__label form__label--nombre" for="nombre">Nombre</label>
+                            <input
+                                class="form__input form__input--nombre"
+                                id="nombre"
+                                type="text"
+                                name="nombre"
+                                autocomplete="given-name"
+                                required
+                            >
+                        </div>
+                        <!-- Apellidos -->
+                        <div class="form__grid-wrapper--apellidos">
+                            <label class="form__label form__label--apellidos" for="apellidos">Apellidos</label>
+                            <input
+                                class="form__input form__input--apellidos"
+                                id="apellidos"
+                                type="text"
+                                name="apellidos"
+                                autocomplete="family-name"
+                                required
+                            >
+                        </div>
+                        <!-- Correo electrónico -->
+                        <div class="form__grid-wrapper--email">
+                            <label class="form__label form__label--email" for="email">Correo electrónico</label>
+                            <input
+                                class="form__input form__input--email"
+                                id="email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                        <!-- Teléfono -->
+                        <div class="form__grid-wrapper--tel">
+                            <label class="form__label form__label--tel" for="tel">Teléfono</label>
+                            <input
+                                class="form__input form__input--tel"
+                                id="tel"
+                                type="tel"
+                                autocomplete="tel"
+                                required
+                            >
+                        </div>
+                        <!-- Mensaje -->
+                        <div class="form__grid-wrapper--mensaje">
+                            <label class="form__label form__label--mensaje" for="mensaje">Mensaje</label>
+                            <textarea
+                                class="form__textarea"
+                                id="mensaje"
+                                name="mensaje"
+                                autocomplete="off"
+                                required
+                            >
+                            </textarea>
+                        </div>
+                        <label class="form__checkbox">
+                            <input type="checkbox" required> Al enviar el formulario aceptas las condiciones descritas en el <a href="legal.html" target="_blank">Aviso Legal</a> y en la <a href="privacy.html" target="_blank">Política de Privacidad</a>
+                        </label>
+                        <button class="form__boton" type="submit">Enviar</button>
+                    </form>
+                    <!-- Fin Formulario de contacto -->
+                    <!-- Mis datos -->
+                    <div class="contact__mis-datos">
+                        <!-- Teléfono -->
+                        <div class="mis-datos__tel">
+                            <img
+                                src="img/components/icons/phone.svg"
+                                alt="Teléfono"
+                                class="mis-datos__icono"
+                                draggable="false"
+                                aria-hidden="true"
+                            >
+                            <a href="tel:34722267511" class="linkAndArrow--half-underline">
+                                <span class="mis-datos__texto">+34 722 276 511</span>
+                            </a>
+                        </div>
+                        <!-- Correo electrónico -->
+                        <div class="mis-datos__email">
+                            <img
+                                src="img/components/icons/at.svg"
+                                alt="Correo"
+                                class="mis-datos__icono"
+                                draggable="false"
+                                aria-hidden="true"
+                            >
+                            <a href="mailto:alexribesbcs@gmail.com" class="linkAndArrow--half-underline">
+                                <span class="mis-datos__texto">alexribesbcs@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Whatsapp -->
+                    <a href="https://wa.me/34722267511" class="whatsapp-enlace">
+                        <img
+                            src="img/components/icons/whatsapp.svg"
+                            alt="Whatsapp"
+                            class="whatsapp-icono"
+                            draggable="false"
+                            aria-label="Whatsapp"
+                        >
+                    </a>
+                </section>
+            </div>
+        </main>
+        <!-- ------------------------- Footer -->
+        <footer class="footer">
+            <div class="container__footer">
+                <div class="footer__flex-wrapper">
+                    <!-- Logo -->
+                    <a href="index.html" class="footer__logo-enlace">
+                        <img
+                            src="img/components/logos/imagotipo-h-b.png"
+                            alt="Alex Ribes Photography & Design"
+                            class="footer__logo-icono"
+                            draggable="false"
+                        >
+                    </a>
+                    <!-- Redes sociales -->
+                    <div class="footer__social">
+                        <p class="footer__social-texto">Redes sociales</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.behance.net/alexribesb3569" target="_blank">
+                                    <img
+                                        src="img/components/social/behance.svg"
+                                        alt="Behance"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/ribes_alex?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+                                    <img
+                                        src="img/components/social/instagram.svg"
+                                        alt="Instagram"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/alejandro-ribes-barcos/" target="_blank">
+                                    <img
+                                        src="img/components/social/linkedin.svg"
+                                        alt="LinkedIn"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Contacta -->
+                    <div class="footer__contacta-wrapper">
+                        <a href="contact.html" class="footer__contacta">Contacta</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <p class="footer__copyright">Copyright©2023 All rights reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alex Ribes | Diseño gráfico</title>
+        <!-- Autoría -->
+        <meta name="author" content="Alejandro Ribes Barcos">
+        <!-- Descripción -->
+        <meta name="description" content="Portfolio - Diseño gráfico">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Safari - Previsualización en marcadores -->
+        <link rel="apple-touch-icon" sizes="152x152" href="img/components/logos/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/components/logos/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="img/components/logos/touch-icon-ipad-retina.png">
+        <!-- Color del navegador -->
+        <meta name="theme-color" content="#04232F">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Alex Ribes Photography & Design">
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="img/components/open-graph-image.webp">
+        <meta property="og:url" content="https://alexribesbcs.github.io/alex-ribes-portfolio/"/>
+        <!-- Tipografías - Adobe Fonts - Lust -->
+        <link rel="stylesheet" href="https://use.typekit.net/qey7gbu.css">
+        <!-- Tipografías - Google Fonts - Open Sans variable -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <!-- JavaScript - Alpine -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- JavaScript - Swiper CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <!-- CSS - Swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <!-- CSS - Normalize -->
+        <link rel="stylesheet" href="css/vendors/normalize.css" type="text/css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/mobile.css" type="text/css" media="all and (max-width: 760px)">
+        <link rel="stylesheet" href="css/desktop.css" type="text/css" media="all and (min-width: 761px)">
+    </head>
+    <body>
+        <!-- ------------------------- Header -->
+        <header class="header" id="header">
+            <div class="container__header">
+                <!-- Checkbox para abrir y cerrar el menú hanburguesa -->
+                <input
+                    type="checkbox"
+                    class="hamburguesa__input"
+                    id="hamburguesa__input"
+                    aria-label="Menú de navegación"
+                />
+                <!-- Logo -->
+                <a href="index.html">
+                    <img
+                        src="img/components/logos/isotipo-p.png"
+                        alt="Alex Ribes Photography & Design"
+                        class="logo__icono"
+                        draggable="false"
+                    >
+                </a>
+                <!-- Menú de navegación -->
+                <nav
+                    class="nav"
+                    role="navigation"
+                    x-data="{ open: false }"
+                    @mouseleave="open = false"
+                >
+                    <ul class="nav__lista">
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <button
+                                    class="nav__enlace nav__enlace--button-reset linkAndArrow--half-underline"
+                                    @click="open = true"
+                                    @mouseover="open = true"
+                                ><span>Portfolio</span></button>
+                            </li>
+                        </div>
+                        <!-- Lista anidada de Portfolio -->
+                        <ul
+                            class="nav__sublista"
+                            :class="open ? 'nav__sublista--show' : 'nav__sublista--hide'"
+                        >
+                            <li class="nav__subitem">
+                                <a
+                                    href="photography.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Fotografía</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="web-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño web</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="graphic-design.html"
+                                    class="nav__subenlace nav--active"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño gráfico</span></a>
+                            </li>
+                            <!-- <li class="nav__subitem">
+                                <a
+                                    href="branding.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Branding</span></a>
+                            </li> -->
+                        </ul>
+                        <!-- Fin Lista anidada de Portfolio -->
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="about.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Sobre mi</span></a>
+                            </li>
+                        </div>
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="contact.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Contacto</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+                <!-- Botón hamburguesa -->
+                <label class="hamburguesa" for="hamburguesa__input">
+                    <svg viewBox="0 0 32 32">
+                        <path class="linea--superior-inferior" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="linea" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+        </header>
+        <!-- Main -->
+        <main>
+            <!-- ------------------------- Cuadro de ayuda -->
+            <div class="container">
+                <h1 class="portfolio__titulo texto--color-principal">Fotografía</h1>
+                <div class="portfolio__ayuda">
+                    <div class="ayuda__wrapper ayuda__wrapper--zoom">
+                        <span class="ayuda__pista">Zoom:</span>
+                        <div class="ayuda__explicacion">
+                            <img
+                                src="img/components/icons/double-tap.png"
+                                alt="Zoom"
+                                class="ayuda__icono"
+                                aria-hidden="true"
+                            >
+                            <span class="ayuda__texto">Doble click</span>
+                            <span class="ayuda__barra" aria-hidden="true" aria-label="o">|</span>
+                            <img
+                                src="img/components/icons/enlarge.png"
+                                alt="Zoom"
+                                class="ayuda__icono"
+                                aria-hidden="true"
+                            >
+                            <span class="ayuda__texto">Amplía</span>
+                        </div>
+                    </div>
+                    <div class="ayuda__wrapper ayuda__wrapper--ver">
+                        <span class="ayuda__pista">Ver:</span>
+                        <div class="ayuda__explicacion">
+                            <img
+                                src="img/components/icons/swipe-left.png"
+                                alt="Deslizar hacia la izquierda"
+                                class="ayuda__icono"
+                                aria-hidden="true"
+                            >
+                            <span class="ayuda__texto">Desliza</span>
+                            <img
+                                src="img/components/icons/swipe-right.png"
+                                alt="Deslizar hacia la derecha"
+                                class="ayuda__icono"
+                                aria-hidden="true"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- _________________________ Fin Cuadro de ayuda -->
+            <!-- Container sin padding lateral para todos los swipers -->
+            <div class="container--no-padding">
+                <!-- ------------------------- Trabajo - Diseño gráfico -->
+                <article class="portfolio__trabajo">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/fotocomposicion.webp" 
+                                        alt="Cartel promocional para un espectáculo de Cabaret en el Bar Lolita"
+                                    >
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-tipografico-estatico.webp" 
+                                        alt="Cartel tipográfico para la Escuela de Diseño de Praga, en blanco y negro"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                    src="img/portfolio/graphic-design/cartel-tipografico-estatico-var1.webp"
+                                    alt="Cartel tipográfico para la Escuela de Diseño de Praga, en rosa, cyan y azul oscuro"
+                                    loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-tipografico-estatico-var2.webp"
+                                        alt="Cartel tipográfico para la Escuela de Diseño de Praga, en rojo, naranja y amarillo"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-moulin-rouge.webp" 
+                                        alt="Cartel promocional de la película Moulin Rouge"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-tipografico-dinamico.webp"
+                                        alt="Cartel tipográfico 'Crushing Competition like Italians on Grapes', en blanco y negro"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-tipografico-dinamico-var1.webp"
+                                        alt="Cartel tipográfico 'Crushing Competition like Italians on Grapes', en colores CMYK"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/cartel-tipografico-dinamico-var2.webp"
+                                        alt="Cartel tipográfico 'Crushing Competition like Italians on Grapes', en colores CMYK análogos"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img
+                                        src="img/portfolio/graphic-design/collage-portada-disco.webp"
+                                        alt="Portada de disco 'Lo mejor de la música electrónica'"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                        </div>
+                        <!-- Flechas de navegación -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <!-- ------------------------- Footer -->
+        <footer class="footer">
+            <div class="container__footer">
+                <div class="footer__flex-wrapper">
+                    <!-- Logo -->
+                    <a href="index.html" class="footer__logo-enlace">
+                        <img
+                            src="img/components/logos/imagotipo-h-b.png"
+                            alt="Alex Ribes Photography & Design"
+                            class="footer__logo-icono"
+                            draggable="false"
+                        >
+                    </a>
+                    <!-- Redes sociales -->
+                    <div class="footer__social">
+                        <p class="footer__social-texto">Redes sociales</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.behance.net/alexribesb3569" target="_blank">
+                                    <img
+                                        src="img/components/social/behance.svg"
+                                        alt="Behance"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/ribes_alex?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+                                    <img
+                                        src="img/components/social/instagram.svg"
+                                        alt="Instagram"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/alejandro-ribes-barcos/" target="_blank">
+                                    <img
+                                        src="img/components/social/linkedin.svg"
+                                        alt="LinkedIn"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Contacta -->
+                    <div class="footer__contacta-wrapper">
+                        <a href="contact.html" class="footer__contacta">Contacta</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <p class="footer__copyright">Copyright©2023 All rights reserved</p>
+            </div>
+        </footer>
+        <!-- ------------------------- JavaScript - Swiper -->
+        <!-- Debe estar aquí para que funcione el lazy loading, no funciona poniéndolo en otro archivo vinculado el <head>, con o sin 'defer' -->
+        <script>
+            const swiper = new Swiper('.swiper', {
+                // Valores por defecto (mobile)
+                // Slide activa siempre en el centro
+                centeredSlides: true,
+                // Ratón con icono de mano
+                grabCursor: true,
+                // Slider cíclico
+                loop: true,
+                // Slides visibles en viewport
+                slidesPerView: 1,
+                // Ángulo máximo permitido para deslizar el swiper
+                touchAngle: 20,
+                // Número de slides a descargar (lazy loading) (antes y después de la activa)
+                // ATENCIÓN: Chrome es muy agresivo a la hora de cargar imágenes con lazy loading, por lo que, al no ser la página lo suficientemente 'larga' (tiene poco contenido) el navegador carga las imágenes como si tuvieran eager loading. Funciona correctamente en Firefox y Safari.
+                // https://web.dev/browser-level-image-lazy-loading/#load-in-distance-threshold
+                lazyPreloadPrevNext: 1,
+                // Flechas de navegación
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Comportamiento del scroll del ratón
+                mousewheel: {
+                    // Llegado a un extremo del swiper, permitir hacer scroll en la web
+                    releaseOnEdges: true,
+                    // Limitar eje del scroll al mismo del swiper
+                    forceToAxis: true,
+                },
+                // Comportamiento del zoom
+                zoom: {
+                    // Máximo zoom permitido
+                    maxRatio: 2,
+                },
+                // Efecto de transición entre slides
+                effect: "creative",
+                // Control del efecto de transición
+                creativeEffect: {
+                    // Número de slides afectadas por 'prev' y 'next' (tanto antes como después de la activa)
+                    limitProgress: 2,
+                    // CSS de las slides previas a la activa
+                    prev: {
+                        translate: ["-60%", 0, -500],
+                        opacity: 0.5,
+                    },
+                    // CSS de las slides siguientes a la activa
+                    next: {
+                        translate: ["60%", 0, -500],
+                        opacity: 0.5,
+                    },
+                },
+                // Valores para escritorio
+                breakpoints: {
+                    760: {
+                        slidesPerView: 2,
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

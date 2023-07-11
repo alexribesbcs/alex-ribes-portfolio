@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alex Ribes | Sobre mi</title>
+        <!-- Autoría -->
+        <meta name="author" content="Alejandro Ribes Barcos">
+        <!-- Descripción -->
+        <meta name="description" content="Sobre mi">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Safari - Previsualización en marcadores -->
+        <link rel="apple-touch-icon" sizes="152x152" href="img/components/logos/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/components/logos/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="img/components/logos/touch-icon-ipad-retina.png">
+        <!-- Color del navegador -->
+        <meta name="theme-color" content="#04232F">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Alex Ribes Photography & Design">
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="img/components/open-graph-image.webp">
+        <meta property="og:url" content="https://alexribesbcs.github.io/alex-ribes-portfolio/"/>
+        <!-- Tipografías - Adobe Fonts - Lust -->
+        <link rel="stylesheet" href="https://use.typekit.net/qey7gbu.css">
+        <!-- Tipografías - Google Fonts - Open Sans variable -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <!-- JavaScript - Alpine -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- CSS - Normalize -->
+        <link rel="stylesheet" href="css/vendors/normalize.css" type="text/css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/mobile.css" type="text/css" media="all and (max-width: 760px)">
+        <link rel="stylesheet" href="css/desktop.css" type="text/css" media="all and (min-width: 761px)">
+    </head>
+    <body>
+        <!-- ------------------------- Header -->
+        <header class="header" id="header">
+            <div class="container__header">
+                <!-- Checkbox para abrir y cerrar el menú hanburguesa -->
+                <input
+                    type="checkbox"
+                    class="hamburguesa__input"
+                    id="hamburguesa__input"
+                    aria-label="Menú de navegación"
+                />
+                <!-- Logo -->
+                <a href="index.html">
+                    <img
+                        src="img/components/logos/isotipo-p.png"
+                        alt="Alex Ribes Photography & Design"
+                        class="logo__icono"
+                        draggable="false"
+                    >
+                </a>
+                <!-- Menú de navegación -->
+                <nav
+                    class="nav"
+                    x-data="{ open: false }"
+                    @mouseleave="open = false"
+                >
+                    <ul class="nav__lista">
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <button
+                                    class="nav__enlace nav__enlace--button-reset linkAndArrow--half-underline"
+                                    @click="open = true"
+                                    @mouseover="open = true"
+                                ><span>Portfolio</span></button>
+                            </li>
+                        </div>
+                        <!-- Lista anidada de Portfolio -->
+                        <ul
+                            class="nav__sublista"
+                            :class="open ? 'nav__sublista--show' : 'nav__sublista--hide'"
+                        >
+                            <li class="nav__subitem">
+                                <a
+                                    href="photography.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Fotografía</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="web-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño web</span></a>
+                            </li>
+                            <li class="nav__subitem">
+                                <a
+                                    href="graphic-design.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Diseño gráfico</span></a>
+                            </li>
+                            <!-- <li class="nav__subitem">
+                                <a
+                                    href="branding.html"
+                                    class="nav__subenlace linkAndArrow--half-underline"
+                                    :class="open ? 'nav__subenlace--show' : 'nav__subenlace--hide'"
+                                ><span>Branding</span></a>
+                            </li> -->
+                        </ul>
+                        <!-- Fin Lista anidada de Portfolio -->
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="about.html"
+                                    class="nav__enlace nav--active"
+                                ><span>Sobre mi</span></a>
+                            </li>
+                        </div>
+                        <div class="nav__item--wrapper">
+                            <li class="nav__item">
+                                <a
+                                    href="contact.html"
+                                    class="nav__enlace linkAndArrow--half-underline"
+                                ><span>Contacto</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+                <!-- Botón hamburguesa -->
+                <label class="hamburguesa" for="hamburguesa__input">
+                    <svg viewBox="0 0 32 32">
+                        <path class="linea--superior-inferior" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="linea" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+        </header>
+        <!-- Main -->
+        <main>
+            <div class="container">
+                <section class="container__about">
+                    <h1 class="about__titulo"><span class="line-break-mobile">¡Hola! Soy</span> <span class="line-break-mobile texto--color-principal">Alex Ribes</span></h1>
+                    <p class="about__parrafo parrafo1">Soy Alex, y con tan sólo 23 añitos llevo unos cuantos sabiendo que quiero dedicarme al mundo de la <span class="texto--color-principal">fotografía y diseño</span>.</p>
+                    <p class="about__parrafo parrafo2">Mi pasión empezó como la de muchos otros, haciendo fotos cutres con una app de pago para el móvil - ya era mucho pedir haberse gastado esos 5€ - y poco a poco ese amor por lo visual creció, hasta el punto que decidí <span class="texto--color-principal">redirigir mis estudios</span>, en un principio, <span class="texto--color-principal">a la fotografía</span>.</p>
+                    <p class="about__parrafo parrafo3">Tras obtener mi <span class="texto--color-principal">titulación en fotografía e iluminación</span>, aproveché los meses del confinamiento de 2020 para aprender por mi cuenta el <span class="texto--color-principal">retoque fotográfico</span>, y en septiembre de ese mismo año empecé a cursar esta materia en una escuela de Madrid junto a <span class="texto--color-principal">retocadores destacados en su gremio</span>.</p>
+                    <p class="about__parrafo parrafo4">Durante los dos siguientes años, metí cabeza en el mundo laboral trabajando como <span class="texto--color-principal">fotógrafo en un paraje turístico</span>. No era un sueño realidad ni nada por el estilo, pero por algo tenía que empezar.</p>
+                    <p class="about__parrafo parrafo5">En 2023 decidí retomar los estudios y ampliar mis conocimientos a las áreas de <span class="texto--color-principal">diseño gráfico, diseño web y creación de contenido multimedia</span>.</p>
+                    <p class="about__parrafo parrafo6">A pesar de no haber sido siempre mi pasión (de más pequeño soñaba con la aviación) con el paso del tiempo <span class="texto--color-principal">he desarrollado cierto gusto por entender lo <em>estético</em></span>, aquello que destaca visualmente y nos atrae subconscientemente como si de un imán se tratara. Pero no me quiero quedar en entenderlo, quiero ir un paso más allá y hacerlo, diseñarlo, <span class="color-principal">ser yo quién atraiga, quién emocione</span>.</p>
+                    <img src="img/about/retrato.webp" alt="Retrato de Alejandro Ribes" class="about__imagen about__imagen-retrato" draggable="false" aria-hidden="true">
+                    <img src="img/about/about-composite.webp" alt="Dos imágenes. Una es un atardecer montañoso en Andorra. La otra es una modelo posando en un estudio de fotografía." class="about__imagen about__imagen-composite" draggable="false" aria-hidden="true">
+                    <img src="img/about/about-portrait.webp" alt="Retrato en blanco y negro de un chico posando" class="about__imagen about__imagen-chico" draggable="false" aria-hidden="true">
+                </section>
+            </div>
+            <!-- ------------------------- Contacta -->
+            <div class="fondo--contacta">
+                <div class="container">
+                    <section class="container__contacta">
+                        <p class="contacta__texto"><span class="line-break-mobile">Encantado de resolver</span> <span class="line-break-mobile">todas tus dudas</span></p>
+                        <a href="contact.html" class="contacta__enlace">Contacta</a>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <!-- Fin Main -->
+        <!-- ------------------------- Footer -->
+        <footer class="footer">
+            <div class="container__footer">
+                <div class="footer__flex-wrapper">
+                    <!-- Logo -->
+                    <a href="index.html" class="footer__logo-enlace">
+                        <img
+                            src="img/components/logos/imagotipo-h-b.png"
+                            alt="Alex Ribes Photography & Design"
+                            class="footer__logo-icono"
+                            draggable="false"
+                        >
+                    </a>
+                    <!-- Redes sociales -->
+                    <div class="footer__social">
+                        <p class="footer__social-texto">Redes sociales</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.behance.net/alexribesb3569" target="_blank">
+                                    <img
+                                        src="img/components/social/behance.svg"
+                                        alt="Behance"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/ribes_alex?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+                                    <img
+                                        src="img/components/social/instagram.svg"
+                                        alt="Instagram"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/alejandro-ribes-barcos/" target="_blank">
+                                    <img
+                                        src="img/components/social/linkedin.svg"
+                                        alt="LinkedIn"
+                                        draggable="false"
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Contacta -->
+                    <div class="footer__contacta-wrapper">
+                        <a href="contact.html" class="footer__contacta">Contacta</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <p class="footer__copyright">Copyright©2023 All rights reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>
