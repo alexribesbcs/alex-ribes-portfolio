@@ -1,0 +1,41 @@
+@use 'abstracts' as *
+
+.nav
+    position: fixed
+    inset: 0
+    z-index: -1
+    background-color: $color-secundario
+    // Ocultar nav - Animación de salida
+    transform: translateY(-100vh)
+    transition:
+        property: transform
+        duration: $transition-nav-hamb--dur
+        timing-function: $transition-nav-hamb--tf
+        delay: calc($transition-nav-hamb--dur / $transition-nav-links-delay-dividend)
+    &__enlace
+        text-transform: uppercase
+        span
+            letter-spacing: $gap--xxxs
+            margin-block: $gap--xs
+            font:
+                size: $fs--xl
+                weight: $fw--medium
+    // Sub-lista de Portfolio
+    &__sublista--show
+        height: 13.75rem
+    &__subenlace
+        text-align: center
+        padding: $gap--s
+        span
+            font-size: $fs--m
+
+// Ocultar enlaces - Animación de salida
+// A cada '.nav__enlace', contándolos al revés, se le aplica un delay que incrementa progresivamente, de forma que se oculta el último primero, y el primero el último
+@for $i from 1 through 3
+    .nav > .nav__lista >.nav__item--wrapper:nth-child(4n - #{$i}) > .nav__item > .nav__enlace
+        transform: translateY(100%)
+        transition:
+            property: transform
+            duration: calc(#{$transition-nav-hamb--dur} / 2)
+            timing-function: $transition-nav-hamb--tf
+            delay: calc(calc(#{$i} * 100ms) - 100ms)

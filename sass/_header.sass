@@ -1,0 +1,132 @@
+@use "abstracts" as *
+
+.header
+    position: sticky
+    top: 0
+    right: 0
+    left:0
+    z-index: 1000
+    background-color: $color-secundario
+    box-shadow: 0px -4px 20px $color-negro
+
+.container__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    box-sizing: border-box
+    margin: 0 auto
+    height: $header-layout-height
+    max-width: $global-layout-max-width
+    padding: $global-layout-padding
+
+// Logo
+.logo
+    &__enlace, &__icono
+        display: block
+        height: $logo--height
+
+// Navegación
+.nav
+    display: flex
+    justify-content: center
+    align-items: center
+    // Lista principal
+    &__lista
+        list-style: none
+        padding: 0
+        text-align: center
+    &__item--wrapper
+        overflow: hidden
+    &__enlace
+        display: block
+        color: $color-blanco
+        padding: $gap--s
+        transform: translateY(100%)
+        &--button-reset
+            cursor: pointer
+            background-color: transparent
+            border: none
+    // Sublista de portfolio
+    &__sublista
+        display: flex
+        flex-direction: column
+        padding: 0
+        transition: all 600ms ease-out
+        &--show
+            overflow: unset
+        &--hide
+            height: 0
+            overflow: hidden
+    &__subitem
+        list-style: none
+    &__subenlace
+        display: block
+        color: $color-blanco
+        span
+            font:
+                size: $fs--m
+                weight: $fw--medium
+        &--show
+            opacity: 100%
+        &--hide
+            opacity: 0%
+
+// Animación de apertura de la sublista de portfolio
+@for $i from 1 through 4
+    .nav > .nav__lista > .nav__sublista.nav__sublista--show > .nav__subitem:nth-child(n + #{$i}) > .nav__subenlace
+        transition:
+            property: opacity
+            duration: $transition-subnav--dur
+            timing-function: $transition-nav-hamb--tf
+            delay: calc(calc(#{$transition-subnav--dur} / 2) * #{$i})
+
+// Animación de salida de la sublista de portfolio
+@for $i from 1 through 4
+    .nav > .nav__lista > .nav__sublista.nav__sublista--hide > .nav__subitem:nth-child(5n - #{$i}) > .nav__subenlace
+        transition:
+            property: opacity
+            duration: $transition-subnav--dur
+            timing-function: $transition-nav-hamb--tf
+            delay: calc(calc(#{$transition-subnav--dur} / 4) * #{$i})
+
+// Menú hamburguesa
+.hamburguesa
+    cursor: pointer
+    svg
+        height: $hamburguesa--height
+        transition:
+            property: transform
+            duration: $transition-nav-hamb--dur
+            timing-function: $transition-nav-hamb--tf
+        .linea
+            fill: none
+            stroke: $color-blanco
+            stroke-width: 2
+            transition: stroke-dasharray $transition-nav-hamb--dur $transition-nav-hamb--tf, stroke-dashoffset $transition-nav-hamb--dur $transition-nav-hamb--tf
+            &--superior-inferior
+                @extend .linea
+                stroke-dasharray: 12 63
+
+// Animación de la hamburguesa y el nav
+.hamburguesa__input
+    display: none
+    // Hamburguesa - Rotación
+    &:checked ~ .hamburguesa > svg
+        transform: rotate(-45deg)
+    // Hamburguesa - Transformación a 'x'
+    &:checked ~ .hamburguesa > svg > .linea--superior-inferior
+        stroke-dasharray: 20 300
+        stroke-dashoffset: -32.42
+    // Mostrar nav - Animación de entrada
+    &:checked ~ .nav
+        transform: translateY(0vh)
+        transition: transform $transition-nav-hamb--dur $transition-nav-hamb--tf
+    // Mostrar enlaces - Animación de entrada
+    @for $i from 1 through 3
+        &:checked ~ .nav > .nav__lista >.nav__item--wrapper:nth-of-type(n + #{$i}) > .nav__item > .nav__enlace
+            transform: translateY(0%)
+            transition:
+                property: transform
+                duration: calc(#{$transition-nav-hamb--dur} / 2)
+                timing-function: $transition-nav-hamb--tf
+                delay: calc(calc(#{$transition-nav-hamb--dur} / #{$transition-nav-links-delay-dividend}) + calc(100ms * $i))

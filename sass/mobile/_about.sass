@@ -1,0 +1,40 @@
+@use "abstracts" as *
+
+.container__about
+    display: flex
+    flex-direction: column
+    gap: $gap--s
+
+.about
+    &__titulo
+        order: 1
+        text-align: center
+    &__parrafo:last-of-type
+        margin-bottom: $gap--s
+
+.parrafo
+    &1
+        order: 2
+    &2
+        order: 3
+    &3
+        order: 5
+    &4
+        order: 6
+    &5
+        order: 8
+    &6
+        order: 9
+
+.about
+    &__imagen
+        &-retrato
+            order: 4
+            width: min(100%, 400px)
+            margin-inline: auto
+        &-composite
+            order: 7
+            width: min(100%, 400px)
+            margin-inline: auto
+        &-chico
+            display: none

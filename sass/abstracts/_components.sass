@@ -1,0 +1,163 @@
+@use "variables" as var
+@use "mixins" as mix
+@use "typography" as typ
+
+// Container para la web en general
+.container
+    max-width: var.$global-layout-max-width
+    margin-inline: auto
+    @include mix.global-layout-padding-inline
+    &--no-padding
+        max-width: var.$global-layout-max-width
+        margin-inline: auto
+
+// Fondos de las secciones del landing
+.fondo
+    &--hero
+        background-color: var.$color-negro //Fallback
+        background:
+            image: url("../img/landing/fondo-hero.webp")
+            size: cover
+            repeat: no-repeat
+            position: right center
+            // attachment: fixed
+    &--trabajos
+        background: linear-gradient(45deg, #53676E, #05242F)
+    &--sobre-mi
+        background-color: var.$color-secundario
+    &--contacta
+        background-color: var.$color-secundario //Fallback
+        background:
+            image: url("../img/components/contact-banner.webp")
+            size: cover
+            repeat: no-repeat
+            position: left 50% top 20%
+
+// Banner/Sección Contacta
+.container__contacta
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: var.$gap--m
+    height: 15rem
+    .contacta
+        &__texto
+            margin: 0
+            text-align: center
+            color: var.$color-blanco
+            letter-spacing: var.$gap--xxxs
+            font:
+                size: typ.$fs--l
+                weight: typ.$fw--semibold
+        &__enlace
+            text:
+                transform: uppercase
+                decoration: none
+            color: var.$color-blanco
+            background-color: var.$color-acento
+            padding:
+                inline: var.$gap--ml
+                block: var.$gap--s
+            font:
+                size: typ.$fs--s
+                weight: typ.$fw--medium
+
+// Enlace en mayúsculas con underline animado y flecha
+// Se puede aplicar a enlaces/textos que no tengan la flecha, la referencia al svg simplemente no tendrá efecto
+.linkAndArrow--half-underline
+    text-decoration: none
+    // Texto
+    span
+        position: relative
+        text-transform: uppercase
+        letter-spacing: var.$gap--xxs
+        padding-block-end: var.$gap--xxs
+        color: var.$color-blanco
+        font-weight: typ.$fw--medium
+    // Línea de subrayado
+    span::after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 2px
+        transform: scaleX(0.5)
+        background-color: var.$color-principal
+        transform-origin: bottom left
+        transition: transform .25s ease-out
+    // Flecha
+    svg
+        transform: translateX(0)
+        transition: all .25s ease-out
+        stroke: var.$color-blanco
+        fill: var.$color-blanco
+    // Hover
+    @include mix.hover
+        svg
+            transform: translateX(.5rem)
+        span::after
+            transform: scaleX(1)
+
+// Imagen que actúa como enlace con underline animado
+// Al no poderse aplicar el pseudo-elemento ::after a una imagen, hay que aplicar una imagen de fondo
+.img--half-underline
+    img
+        padding-block-end: var.$gap--xs
+        background:
+            image: linear-gradient(var.$color-principal, var.$color-principal)
+            size: 50% 2px
+            position: bottom left
+            repeat: no-repeat
+        transition: background-size .25s ease-out
+    // Hover
+    @include mix.hover
+        img
+            background-size: 100% 2px
+
+// Enlace del header de la página actual
+.nav--active
+    text:
+        decoration: none
+        transform: uppercase
+    span 
+        letter-spacing: var.$gap--xxs
+        color: var.$color-principal
+        font-weight: typ.$fw--semibold
+
+// Texto en color principal
+.texto--color-principal
+    color: var.$color-principal
+
+// Swiper
+.swiper
+    // Swiper
+    width: 100%
+    height: 60vh
+    min-height: 350px
+    margin-block: 2rem
+    // Flechas de navegación
+    &-button-prev, &-button-next
+        color: var.$color-principal
+        transition: opacity .25s ease-out
+        opacity: 0 !important
+    @include mix.hover
+        .swiper-button-prev, .swiper-button-next
+            opacity: 1 !important
+        .swiper-button-disabled
+            opacity: .35 !important
+    // Wrapper de las slides
+    &-wrapper
+        width: 100%
+        height: 100%
+    // Slides
+    &-slide
+        height: 100%
+        width: fit-content
+        img
+            width: 100%
+            height: 100%
+            object-fit: contain
+            margin-inline: auto
+    &-slide, &-button-next, &-button-prev
+        user-select: none // Evita seleccionar la imagen como si fuera texto. También aplicado a las flechas de navegación al hacerles doble click. Necesita -webkit- (generado en .css)

@@ -1,0 +1,12 @@
+// Deshablita la pseudo-clase :hover en dispositivos no compatibles
+@mixin hover()
+  @media (hover: hover)
+    &:hover
+      @content
+
+// Modifica el padding lateral según la anchura del dispositivo (coincide con el breakpoint de mobile y desktop)
+@mixin global-layout-padding-inline()
+    @media all and (max-width: 760px)
+        padding-inline: 1rem
+    @media all and (min-width: 761px)
+        padding-inline: 3rem

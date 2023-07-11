@@ -1,0 +1,16 @@
+@use "abstracts" as *
+
+.portfolio
+    &__subtitulo, &__fecha, &__ubicacion
+        display: inline
+    &__fecha, &__ubicacion
+        &::before
+            content: "| "
+            font:
+                size: $fs--xl
+                weight: $fw--light
+            color: $color-acento
+    &__ayuda
+        display: grid
+        grid-template-areas: "zoom" "ver" "github"
+        width: 50%

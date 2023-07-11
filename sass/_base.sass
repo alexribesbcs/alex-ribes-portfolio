@@ -1,0 +1,415 @@
+@use "abstracts" as *
+
+// ------------------------- Ajustes Generales y Resets
+html
+    scroll:
+        behavior: smooth
+        // snap-type: y proximity // No quiero usarlo, pero el no usarlo implica que scroll-margin-top no funcione en Chrome... lose-lose
+    text-rendering: optimizeLegibility
+    font-family: $ff--opensans, 'Helvetica Neue', sans-serif
+    background-color: $color-secundario
+    color: $color-blanco
+
+img
+    display: block
+    max-width: 100%
+// _________________________ Fin Ajustes Generales y Resets
+
+///// ------------------------- Inicio ------------------------- \\\\\
+
+// ------------------------- Hero
+.container__hero
+    display: grid
+    grid:
+        template-rows: 50% auto min-content
+        template-columns: auto 1fr
+    min-height: calc(100vh - $header-layout-height)
+    min-height: calc(100svh - $header-layout-height)
+
+.hero
+    // Social
+    &__social
+        grid-column: -3/-2
+        display: flex
+        flex-direction: column
+        align-items: center
+        &-linea-vertical
+            flex: 1
+            border-left: $linea-vertical
+        &-redes
+            display: flex
+            flex-direction: column
+            padding: 0
+        &-lista
+            list-style: none
+        &-enlace
+            display: block
+        &-icono
+            width: $icono--width
+    // Nombre y profesión
+    &__nombre
+        grid-column: 2/3
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        padding-block-start: 8vmin
+        h1
+            font:
+                family: $ff--lust
+                size: $fs--ml
+                size: clamp($fs--ml, 9vw, $fs--xxl)
+            letter-spacing: $gap--xxs
+            white-space: nowrap
+            margin: 0
+            text-transform: uppercase
+        h2
+            font:
+                family: $ff--lust
+                size: $fs--s
+                size: clamp($fs--s, 2vw, $fs--m)
+            word-spacing: $gap--xs
+            letter-spacing: $gap--xxxs
+            line-height: $gap--m
+            margin: 0
+    // Frase
+    &__frase
+        grid:
+            column: 2/3
+            row: 2/3
+        display: flex
+        justify-content: flex-end
+        align-items: flex-end
+        p
+            font:
+                family: $ff--opensans
+                weight: $fw--light
+                style: italic
+                size: $fs--s //Fallback
+                size: clamp($fs--s, 3vw, $fs--m)
+            text:
+                align: right
+                wrap: balance
+            width: min(90%, 35rem)
+    // Flecha
+    &__flecha
+        grid:
+            column: 1/3
+            row: 3/4
+        display: flex
+        justify-content: center
+        align-items: flex-end
+        padding-block-end: $gap--xs
+        &-icono
+            width: $icono--width
+// _________________________ Fin Hero
+
+// ------------------------- Trabajos
+.container__trabajos
+    scroll:
+        // snap-align: start
+        margin-top: $header-layout-height
+    display: grid
+    grid:
+        template-areas: "titulo"
+        template-rows: 1fr
+        template-columns: 1fr
+    // place-items: center
+    min-height: calc(100vh - $header-layout-height)
+    min-height: calc(100svh - $header-layout-height)
+    // Ocultar el desplazamiento de las imágenes 'detrás' de las otras secciones
+    overflow: hidden
+
+// Animaciones
+.trabajos
+    // Enlaces
+    // Las animaciones de los enlaces están en animations.sass, ya que colocando los @for aquí por algún motivo no funciona
+    // Imágenes
+    &__imagen-enlace
+        &--primero
+            animation:
+                name: trabajos-imagen-primero
+                duration: 8s
+                delay: 1.25s
+                timing-function: linear
+                iteration-count: infinite
+        &--segundo
+            transform: translate(-10%, 100vh)
+            animation:
+                name: trabajos-imagen-otros
+                duration: 8s
+                delay: 1.25s
+                timing-function: linear
+                iteration-count: infinite
+        &--tercero
+            transform: translate(-10%, 100vh)
+            animation:
+                name: trabajos-imagen-otros
+                duration: 8s
+                delay: 3.25s
+                timing-function: linear
+                iteration-count: infinite
+        &--cuarto
+            transform: translate(-10%, 100vh)
+            animation:
+                name: trabajos-imagen-otros
+                duration: 8s
+                delay: 5.25s
+                timing-function: linear
+                iteration-count: infinite
+
+.trabajos
+    // Título
+    &__item
+        grid-area: titulo
+        display: flex
+        justify-content: center
+        align-items: center
+        &-enlace
+            color: $color-blanco
+            white-space: nowrap
+            font:
+                family: $ff--lust
+                size: $fs--m
+                size: clamp($fs--m, 7vw, $fs--xxl)
+            text:
+                decoration: none
+                transform: uppercase
+                align: center
+                shadow: 3px 3px 20px $color-negro
+            span
+                position: relative // Al cambiarles la opacidad con la animación, el contenido se genera en una 'pantalla virtual' e ignora el z-index general, haciendo que actúe un z-index único e independiente dentro de esa 'pantalla'. Resumen, darle posición relativa para que haga lo que quiero que gana.
+                display: inline-block
+                margin-inline: $gap--xxxs
+    // Imagen
+    &__imagen
+        z-index: 10
+        grid-area: titulo
+        display: flex
+        align-self: center
+        width: min(50vw, 300px)
+        &-enlace
+            display: block
+            rotate: -7deg
+        img
+            object-fit: cover
+            width: 100%
+        
+// _________________________ Fin Trabajos
+
+// ------------------------- Sobre mi
+.container__sobre-mi
+    display: grid
+    padding: $global-layout-padding--block
+
+.sobre-mi
+    &__titulo
+        letter-spacing: $gap--xxxs
+        font:
+            family: $ff--lust
+            size: clamp($fs--m, 7vw, $fs--ml)
+    &__imagen
+        width: min(100%, 500px)
+        object-fit: cover
+    &__enlace
+        margin-block-end: $gap--m
+// _________________________ Fin Sobre mi
+
+///// _________________________ Fin Inicio _________________________ \\\\\
+
+///// ------------------------- About ------------------------- \\\\\
+.container__about
+    padding-block-start: $gap--l
+
+.about
+    &__titulo
+        margin: 0
+        margin-block-end: $gap--s
+        letter-spacing: $gap--xxxs
+        line-height: 1.5
+        font:
+            family: $ff--lust
+            size: $fs--xl
+            size: clamp($fs--xl, 5vw, $fs--xxl)
+    &__parrafo
+        margin: 0
+        line-height: 1.5
+
+///// _________________________ Fin About _________________________ \\\\\
+
+///// ------------------------- Contact ------------------------- \\\\\
+
+.container__contact
+    display: flex
+    flex-direction: column
+    gap: $gap--s
+    padding-block-start: $gap--l
+
+.contact
+    // Título
+    &__titulo
+        margin: 0
+        margin-block-end: $gap--s
+        letter-spacing: $gap--xxxs
+        line-height: 1.5
+        text-wrap: balance
+        font:
+            family: $ff--lust
+            size: $fs--l
+            size: clamp($fs--l, 8vw, $fs--xxl)
+    // Texto
+    &__texto
+        line-height: 1.5
+        text-wrap: balance
+
+    // Formulario
+    &__form
+        margin-block-end: $gap--l
+        // Igualar tamaños y quitar outline
+        .form__label, .form__input, .form__textarea
+            display: block
+            box-sizing: border-box
+            &:focus
+                outline: none
+        // Labels
+        .form__label
+            font:
+                size: $fs--xs
+                weight: $fw--medium
+        // Inputs y Textarea
+        .form__input, .form__textarea
+            width: 100%
+            background-color: $color-acento
+            color: $color-blanco
+            padding: $gap--xs
+            border: 2px solid $color-principal
+                radius: 4px
+            margin:
+                block-start: $gap--xs
+                block-end: $gap--s
+        .form__textarea
+            min-height: 8rem
+            resize: vertical
+        // Botón
+        .form__boton
+            max-width: 200px
+            box-sizing: border-box
+            background-color: $color-principal
+            color: $color-negro
+            border: none
+            font:
+                size: $fs--m
+                weight: $fw--medium
+            padding:
+                block: $gap--s
+                inline: $gap--m
+            margin-block-start: $gap--m
+            transition: background-color 250ms ease-out
+            @include hover
+                background-color: darken($color-principal, 8%)
+            &:active
+                scale: 0.98
+                box-shadow: inset 1px 1px 0px $color-blanco
+    // Mis datos
+    &__mis-datos
+        display: flex
+        flex-direction: column
+        gap: $gap--s
+        .mis-datos
+            &__tel, &__email
+                display: flex
+                gap: $gap--xs
+            &__texto
+                font-size: $fs--xxs
+            &__icono
+                width: 1.5rem
+
+// Whatsapp
+.whatsapp
+    &-enlace
+        // Posición
+        position: sticky
+        bottom: 30px
+        // Margen definido con 'left' y 'bottom' para evitar cambios de posicionamiento según dirección de lectura
+        margin:
+            left: auto
+            bottom: $gap--s // Margen con el footer
+        // Tamaño
+        display: block
+        width: fit-content
+        border-radius: 50%
+        padding: $gap--xxs
+        // Propiedades
+        background-color: #25D366
+        box-shadow: 4px 4px 20px $color-negro
+    &-icono
+        width: 3rem
+
+///// _________________________ Fin About _________________________ \\\\\
+
+///// ------------------------- Portfolio ------------------------- \\\\\
+
+.portfolio
+    // Margen superior entre trabajos
+    &__trabajo:not(:first-of-type) .portfolio__info
+        margin-block-start: 8rem
+    // Título de la sección
+    &__titulo
+        font:
+            family: $ff--lust
+            size: $fs--l
+            size: clamp($fs--l, 13vw, $fs--xxl)
+        letter-spacing: $gap--xxxs
+    // Título del trabajo
+    &__subtitulo
+        font:
+            size: $fs--m
+            size: clamp($fs--m, 6vw, $fs--ml)
+            weight: $fw--normal
+        letter-spacing: $gap--xxxs
+    &__fecha, &__ubicacion
+        font:
+            size: $fs--s
+            size: clamp($fs--s, 5vw, $fs--l)
+            weight: $fw--light
+    &__ubicacion
+        font-style: italic
+    &__ayuda
+        color: darken($color-blanco, 25%)
+        border: 1px solid darken($color-blanco, 25%)
+            radius: 8px
+        margin-block-end: $gap--l
+        padding: $gap--s
+        box-sizing: border-box
+
+// Cuadro de ayuda
+.ayuda
+    // Contenedor de cada acción de navegación
+    &__wrapper
+        display: flex
+        align-items: center
+        gap: $gap--xs
+        &--zoom
+            grid-area: zoom
+            margin-block-end: $gap--s
+        &--ver
+            grid-area: ver
+    // Título de acción de navegación
+    &__pista
+        font:
+            size: $fs--m
+            weight: $fw--semibold
+    // Contenedor de cada explicación de acción de navegación
+    &__explicacion
+        display: flex
+        align-items: center
+        gap: $gap--xs
+    // Icono
+    &__icono
+        height: $fs--l
+    // Barra divisora
+    &__barra
+        font-size: $fs--m
+    &__github
+        grid-area: github
+        margin: 0
+        margin-block-start: $gap--s

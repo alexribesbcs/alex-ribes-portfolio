@@ -1,0 +1,56 @@
+@use 'abstracts' as *
+
+// ------------------------- Hero
+.container__hero
+    gap: $gap--l
+
+// Social
+.hero
+    &__social
+        grid-row: 1/4
+        justify-content: center
+        // Recorte vertical de las líneas verticales
+        padding: $gap--l 0
+        &-linea-vertical
+            display: block
+        &-redes
+            gap: $gap--s
+            padding: $gap--s 0
+// _________________________ Fin Hero
+
+// ------------------------- Trabajos
+.trabajos__imagen
+    justify-self: flex-end
+    margin-right: 20vw
+// _________________________ Trabajos
+
+// ------------------------- Sobre mi
+.container__sobre-mi
+    grid:
+        template-columns: 35% 65%
+        template-rows: repeat(2, min-content) 1fr
+    gap: $gap--s
+
+.sobre-mi
+    &__titulo
+        margin-block: $gap--m
+        padding: 0
+        grid-column: 1/3
+        grid-row: 1/2
+    &__imagen
+        grid-column: 2/3
+        grid-row: 1/4
+        margin-left: auto
+    &__texto
+        margin: 0
+        padding: 0
+        grid-column: 1/2
+        grid-row: 2/3
+    &__enlace
+        width: fit-content
+        margin-top: auto
+        display: block
+        padding: 0
+        grid-column: 1/2
+        grid-row: 3/4
+// _________________________ Fin Sobre mi

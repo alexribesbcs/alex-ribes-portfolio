@@ -1,0 +1,1411 @@
+.container {
+  max-width: 85rem;
+  margin-inline: auto;
+}
+@media all and (max-width: 760px) {
+  .container {
+    padding-inline: 1rem;
+  }
+}
+@media all and (min-width: 761px) {
+  .container {
+    padding-inline: 3rem;
+  }
+}
+.container--no-padding {
+  max-width: 85rem;
+  margin-inline: auto;
+}
+
+.fondo--hero {
+  background-color: #101010;
+  background-image: url("../img/landing/fondo-hero.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.fondo--trabajos {
+  background: linear-gradient(45deg, #53676E, #05242F);
+}
+.fondo--sobre-mi {
+  background-color: #04232F;
+}
+.fondo--contacta {
+  background-color: #04232F;
+  background-image: url("../img/components/contact-banner.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left 50% top 20%;
+}
+
+.container__contacta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.5rem;
+  height: 15rem;
+}
+.container__contacta .contacta__texto {
+  margin: 0;
+  text-align: center;
+  color: #f7f7f7;
+  letter-spacing: 0.125rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.container__contacta .contacta__enlace {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f7f7f7;
+  background-color: #53676E;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.linkAndArrow--half-underline {
+  text-decoration: none;
+}
+.linkAndArrow--half-underline span {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  -webkit-padding-after: 0.25rem;
+          padding-block-end: 0.25rem;
+  color: #f7f7f7;
+  font-weight: 500;
+}
+.linkAndArrow--half-underline span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  background-color: #d5aa80;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+.linkAndArrow--half-underline svg {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  stroke: #f7f7f7;
+  fill: #f7f7f7;
+}
+@media (hover: hover) {
+  .linkAndArrow--half-underline:hover svg {
+    -webkit-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
+  }
+  .linkAndArrow--half-underline:hover span::after {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.img--half-underline img {
+  -webkit-padding-after: 0.5rem;
+          padding-block-end: 0.5rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d5aa80), to(#d5aa80));
+  background-image: linear-gradient(#d5aa80, #d5aa80);
+  background-size: 50% 2px;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  -webkit-transition: background-size 0.25s ease-out;
+  transition: background-size 0.25s ease-out;
+}
+@media (hover: hover) {
+  .img--half-underline:hover img {
+    background-size: 100% 2px;
+  }
+}
+
+.nav--active {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav--active span {
+  letter-spacing: 0.25rem;
+  color: #d5aa80;
+  font-weight: 600;
+}
+
+.texto--color-principal {
+  color: #d5aa80;
+}
+
+.swiper {
+  width: 100%;
+  height: 60vh;
+  min-height: 350px;
+  margin-block: 2rem;
+}
+.swiper-button-prev, .swiper-button-next {
+  color: #d5aa80;
+  -webkit-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
+  opacity: 0 !important;
+}
+@media (hover: hover) {
+  .swiper:hover .swiper-button-prev, .swiper:hover .swiper-button-next {
+    opacity: 1 !important;
+  }
+  .swiper:hover .swiper-button-disabled {
+    opacity: 0.35 !important;
+  }
+}
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  height: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-inline: auto;
+}
+.swiper-slide, .swiper-button-next, .swiper-button-prev {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@-webkit-keyframes trabajos-enlace-primero {
+  0% {
+    z-index: 100;
+    opacity: 100%;
+  }
+  3.125% {
+    z-index: 100;
+    opacity: 0%;
+  }
+  3.126% {
+    z-index: -100;
+  }
+  81.25% {
+    z-index: -100;
+    opacity: 0%;
+  }
+  84.274% {
+    z-index: 100;
+  }
+  84.275% {
+    opacity: 100%;
+  }
+}
+
+@keyframes trabajos-enlace-primero {
+  0% {
+    z-index: 100;
+    opacity: 100%;
+  }
+  3.125% {
+    z-index: 100;
+    opacity: 0%;
+  }
+  3.126% {
+    z-index: -100;
+  }
+  81.25% {
+    z-index: -100;
+    opacity: 0%;
+  }
+  84.274% {
+    z-index: 100;
+  }
+  84.275% {
+    opacity: 100%;
+  }
+}
+@-webkit-keyframes trabajos-enlace-otros {
+  0% {
+    z-index: -90;
+    opacity: 0%;
+  }
+  3.124% {
+    z-index: 110;
+  }
+  3.125% {
+    opacity: 100%;
+  }
+  18.75% {
+    z-index: 110;
+    opacity: 100%;
+  }
+  21.875% {
+    z-index: 110;
+    opacity: 0%;
+  }
+  21.876% {
+    z-index: -90;
+  }
+}
+@keyframes trabajos-enlace-otros {
+  0% {
+    z-index: -90;
+    opacity: 0%;
+  }
+  3.124% {
+    z-index: 110;
+  }
+  3.125% {
+    opacity: 100%;
+  }
+  18.75% {
+    z-index: 110;
+    opacity: 100%;
+  }
+  21.875% {
+    z-index: 110;
+    opacity: 0%;
+  }
+  21.876% {
+    z-index: -90;
+  }
+}
+.trabajos__item-enlace--primero > span:nth-child(1) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 1));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 1));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(2) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 2));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 2));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(3) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 3));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 3));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(4) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 4));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 4));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(5) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 5));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 5));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(6) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 6));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 6));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(7) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 7));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 7));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(8) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 8));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 8));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(9) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 9));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 9));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--primero > span:nth-child(10) {
+  z-index: 100;
+  opacity: 100%;
+  -webkit-animation-name: trabajos-enlace-primero;
+          animation-name: trabajos-enlace-primero;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.25s - (calc(0.25s / 10) * 10));
+          animation-delay: calc(1.25s - (calc(0.25s / 10) * 10));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(1) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 1));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 1));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(2) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 2));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 2));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(3) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 3));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 3));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(4) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 4));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 4));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(5) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 5));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 5));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(6) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 6));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 6));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(7) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 7));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 7));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(8) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 8));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 8));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--segundo > span:nth-child(9) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(1.75s - (calc(0.25s / 9) * 9));
+          animation-delay: calc(1.75s - (calc(0.25s / 9) * 9));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(1) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 1));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 1));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(2) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 2));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 2));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(3) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 3));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 3));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(4) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 4));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 4));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(5) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 5));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 5));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(6) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 6));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 6));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(7) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 7));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 7));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(8) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 8));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 8));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(9) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 9));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 9));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(10) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 10));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 10));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(11) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 11));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 11));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(12) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 12));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 12));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--tercero > span:nth-child(13) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(3.75s - (calc(0.25s / 13) * 13));
+          animation-delay: calc(3.75s - (calc(0.25s / 13) * 13));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(1) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 1));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 1));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(2) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 2));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 2));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(3) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 3));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 3));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(4) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 4));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 4));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(5) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 5));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 5));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(6) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 6));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 6));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(7) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 7));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 7));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.trabajos__item-enlace--cuarto > span:nth-child(8) {
+  z-index: -90;
+  opacity: 0%;
+  -webkit-animation-name: trabajos-enlace-otros;
+          animation-name: trabajos-enlace-otros;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: calc(5.75s - (calc(0.25s / 8) * 8));
+          animation-delay: calc(5.75s - (calc(0.25s / 8) * 8));
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes trabajos-imagen-primero {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  2.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  2.34376% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  77.34375% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  79.6875% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  79.6876% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  82.03125% {
+    -webkit-transform: translate(-12%, -100vh);
+            transform: translate(-12%, -100vh);
+  }
+  82.03126% {
+    -webkit-transform: translate(-12%, 100vh);
+            transform: translate(-12%, 100vh);
+  }
+  84.375% {
+    -webkit-transform: translate(-15%, -100vh);
+            transform: translate(-15%, -100vh);
+  }
+  84.376% {
+    -webkit-transform: translate(0%, 100vh);
+            transform: translate(0%, 100vh);
+  }
+  86.71875% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes trabajos-imagen-primero {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  2.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  2.34376% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  77.34375% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  79.6875% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  79.6876% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  82.03125% {
+    -webkit-transform: translate(-12%, -100vh);
+            transform: translate(-12%, -100vh);
+  }
+  82.03126% {
+    -webkit-transform: translate(-12%, 100vh);
+            transform: translate(-12%, 100vh);
+  }
+  84.375% {
+    -webkit-transform: translate(-15%, -100vh);
+            transform: translate(-15%, -100vh);
+  }
+  84.376% {
+    -webkit-transform: translate(0%, 100vh);
+            transform: translate(0%, 100vh);
+  }
+  86.71875% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+@-webkit-keyframes trabajos-imagen-otros {
+  0% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  2.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  2.34376% {
+    -webkit-transform: translate(-12%, 100vh);
+            transform: translate(-12%, 100vh);
+  }
+  4.6875% {
+    -webkit-transform: translate(-12%, -100vh);
+            transform: translate(-12%, -100vh);
+  }
+  4.6876% {
+    -webkit-transform: translate(-15%, 100vh);
+            transform: translate(-15%, 100vh);
+  }
+  7.03125% {
+    -webkit-transform: translate(-15%, -100vh);
+            transform: translate(-15%, -100vh);
+  }
+  7.03126% {
+    -webkit-transform: translate(0%, 100vh);
+            transform: translate(0%, 100vh);
+  }
+  9.375% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  27.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  27.34376% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+}
+@keyframes trabajos-imagen-otros {
+  0% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+  2.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  2.34376% {
+    -webkit-transform: translate(-12%, 100vh);
+            transform: translate(-12%, 100vh);
+  }
+  4.6875% {
+    -webkit-transform: translate(-12%, -100vh);
+            transform: translate(-12%, -100vh);
+  }
+  4.6876% {
+    -webkit-transform: translate(-15%, 100vh);
+            transform: translate(-15%, 100vh);
+  }
+  7.03125% {
+    -webkit-transform: translate(-15%, -100vh);
+            transform: translate(-15%, -100vh);
+  }
+  7.03126% {
+    -webkit-transform: translate(0%, 100vh);
+            transform: translate(0%, 100vh);
+  }
+  9.375% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  27.34375% {
+    -webkit-transform: translate(-10%, -100vh);
+            transform: translate(-10%, -100vh);
+  }
+  27.34376% {
+    -webkit-transform: translate(-10%, 100vh);
+            transform: translate(-10%, 100vh);
+  }
+}
+.nav {
+  position: relative;
+  background-color: transparent;
+  -webkit-transform: translateY(0vh);
+          transform: translateY(0vh);
+}
+.nav__enlace {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+.nav__lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3rem;
+  font-size: 1.25rem;
+}
+.nav__sublista {
+  position: absolute;
+  left: 0;
+  top: 5rem;
+  background-color: #04232F;
+  -webkit-box-shadow: -2px 2px 10px #101010, 2px 2px 10px #101010;
+          box-shadow: -2px 2px 10px #101010, 2px 2px 10px #101010;
+}
+.nav__sublista--show {
+  height: 8rem;
+}
+.nav__subenlace {
+  text-align: left;
+  padding: 0.5rem;
+}
+.nav__subenlace span {
+  font-size: 1rem;
+}
+
+.hamburguesa {
+  display: none;
+}
+
+.footer__flex-wrapper {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: unset;
+}
+
+.container__hero {
+  gap: 3rem;
+}
+
+.hero__social {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3rem 0;
+}
+.hero__social-linea-vertical {
+  display: block;
+}
+.hero__social-redes {
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.trabajos__imagen {
+  justify-self: flex-end;
+  margin-right: 20vw;
+}
+
+.container__sobre-mi {
+  -ms-grid-columns: 35% 1rem 65%;
+  grid-template-columns: 35% 65%;
+  -ms-grid-rows: -webkit-min-content 1rem -webkit-min-content 1rem 1fr;
+  -ms-grid-rows: min-content 1rem min-content 1rem 1fr;
+  grid-template-rows: repeat(2, -webkit-min-content) 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
+  gap: 1rem;
+}
+
+.container__sobre-mi > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.container__sobre-mi > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.container__sobre-mi > *:nth-child(3) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+
+.container__sobre-mi > *:nth-child(4) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+
+.container__sobre-mi > *:nth-child(5) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+
+.container__sobre-mi > *:nth-child(6) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+
+.sobre-mi__titulo {
+  margin-block: 1.5rem;
+  padding: 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+.sobre-mi__imagen {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  margin-left: auto;
+}
+.sobre-mi__texto {
+  margin: 0;
+  padding: 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+.sobre-mi__enlace {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: auto;
+  display: block;
+  padding: 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.container__about {
+  display: -ms-grid;
+  display: grid;
+  grid-template-colums: 1fr 2fr 2fr 1fr;
+  -ms-grid-rows: -webkit-fit-content 1rem -webkit-fit-content 1rem -webkit-fit-content 1rem -webkit-fit-content 1rem -webkit-fit-content 1rem -webkit-fit-content 1rem -webkit-fit-content;
+  -ms-grid-rows: fit-content 1rem fit-content 1rem fit-content 1rem fit-content 1rem fit-content 1rem fit-content 1rem fit-content;
+  grid-template-rows: repeat(7, -webkit-fit-content);
+  grid-template-rows: repeat(7, fit-content);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.about__titulo {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+.about__imagen-composite {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-column: 3/5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  grid-row: 1/5;
+}
+.about__imagen-retrato {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 3;
+  grid-row: 5/8;
+}
+.about__imagen-chico {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 3;
+  grid-row: 5/8;
+}
+
+.parrafo1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+.parrafo2 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+.parrafo3 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+}
+.parrafo4 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+}
+.parrafo5 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+}
+.parrafo6 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  grid-row: 7/8;
+}
+
+.about__imagen-composite {
+  max-width: 90%;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.about__imagen-retrato {
+  width: min(100%, 300px);
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+.about__imagen-chico {
+  width: min(100%, 200px);
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.contact__form {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "nombre apellidos" "email tel" "mensaje mensaje" "checkbox checkbox" "boton boton";
+  gap: 1rem;
+}
+.contact__form .form__grid-wrapper--nombre {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: nombre;
+}
+.contact__form .form__grid-wrapper--apellidos {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: apellidos;
+}
+.contact__form .form__grid-wrapper--email {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: email;
+}
+.contact__form .form__grid-wrapper--tel {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: tel;
+}
+.contact__form .form__grid-wrapper--mensaje {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: mensaje;
+}
+.contact__form .form__checkbox {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: checkbox;
+}
+.contact__form .form__boton {
+  -ms-grid-row: 9;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: boton;
+}
+
+.portfolio__subtitulo, .portfolio__fecha, .portfolio__ubicacion {
+  display: inline;
+}
+.portfolio__fecha::before, .portfolio__ubicacion::before {
+  content: "| ";
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #53676E;
+}
+.portfolio__ayuda {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "zoom" "ver" "github";
+  width: 50%;
+}
+/*# sourceMappingURL=desktop.css.map */

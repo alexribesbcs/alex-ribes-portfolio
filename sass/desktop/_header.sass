@@ -1,0 +1,29 @@
+@use 'abstracts' as *
+
+.nav
+    position: relative
+    background-color: transparent
+    transform: translateY(0vh)
+    &__enlace
+        transform: translateY(0%)
+    &__lista
+        display: flex
+        gap: $gap--l
+        font-size: $fs--m
+    // Sub-lista de Portfolio
+    &__sublista
+        position: absolute
+        left: 0
+        top: $header-layout-height
+        background-color: $color-secundario
+        box-shadow: -2px 2px 10px $color-negro, 2px 2px 10px $color-negro
+        &--show
+            height: 8rem
+    &__subenlace
+        text-align: left
+        padding: $gap--xs
+        span
+            font-size: $fs--s
+
+.hamburguesa
+    display: none

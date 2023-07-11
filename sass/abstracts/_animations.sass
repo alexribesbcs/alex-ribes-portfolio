@@ -1,0 +1,192 @@
+// ------------------------- Animaciones de los enlaces de la sección trabajos del landing
+
+// Los porcentajes de las animaciones se basan en una duración de 8s (ciclo completo de los 4 trabajos que existen). Los 8s nacen de la suma del tiempo estático y del tiempo de transición, sumados y multiplicados por el número de trabajos [(1.25s + 0.75s) * 4].
+// El estado estático (cuánto dura el trabajo en pantalla) es de 1.25s.
+// El estado de transición (cuánto dura el cambio entre un trabajo y otro) es de 0.75s. Dichos 0.75s de subdividen en 0.25s de desaparición de un enlace, 0.25s de no ver ningún enlace y 0.25s de aparición del siguiente enlace.
+
+// Animación del primer enlace
+@keyframes trabajos-enlace-primero
+    // Al inicio, está por delante y con opacidad al 100%
+    0%
+        z-index: 100
+        opacity: 100%
+    // A los 0.25s de la animación, ha desaparecido
+    3.125%
+        z-index: 100
+        opacity: 0%
+    // Inmediatamente después, se va al fondo para dar paso al resto de enlaces
+    3.126%
+        z-index: -100
+    // Se mantiene oculto y desaparecido hasta los 6.5s de la animación
+    81.25%
+        z-index: -100
+        opacity: 0%
+    // Inmediatamente antes de aparecer, vuelve delante para poder pulsarlo
+    84.274%
+        z-index: 100
+    // A los 6.75s de la animación, ha aparecido, y se mantendrá en el estado estático durante 1.25s, hasta que vuelva al segundo paso de la animación
+    84.275%
+        opacity: 100%
+
+// Animación del resto de enlaces
+// Independientemente de cuántos enlaces haya después del primero, todos comparten la misma animación, con la diferencia del delay que tienen entre ellos (definido más adelante en sus respectivas funciones)
+@keyframes trabajos-enlace-otros
+    // Al inicio, está por detrás (para poder clicar el enlace previo) y desaparecido
+    0%
+        z-index: -90
+        opacity: 0%
+    // Inmediatamente antes de aparecer, vuelve delante para poder pulsarlo
+    3.124%
+        z-index: 110
+    // A los 0.25s de la animación, ha aparecido
+    3.125%
+        opacity: 100%
+    // Se mantiene delante y visible durante 1.25s
+    18.75%
+        z-index: 110
+        opacity: 100%
+    // A los 1.75s de la animación, ha desaparecido
+    21.875%
+        z-index: 110
+        opacity: 0%
+    // Inmediatamente después, vuelve detrás para dar paso al resto de enlaces
+    21.876%
+        z-index: -90
+
+// ------------------------- Funciones recursivas para la animación letra por letra de los enlaces de la sección trabajos del landing
+// Cada enlace requiere su propia función ya que se ha de modificar el número de iteraciones que realiza para que sea igual al número de caracteres del enlace. También se modifica el delay, pero éste podría modificarse dinámicamente si estuviera todo en una misma función.
+
+// Función recursiva para la animación del primer enlace
+@for $i from 1 through 10
+    // Por cada letra del enlace:
+    .trabajos__item-enlace--primero > span:nth-child(#{$i})
+        // Lo reseteamos a su estado base
+        z-index: 100
+        opacity: 100%
+        // Le asignamos su correspondiente animación
+        animation:
+            name: trabajos-enlace-primero
+            duration: 8s
+            // El delay se calcula con 1.25s de base para mantenerlo en pantalla nada más carga la página.
+            // A este delay base se le resta (para que vaya del final al principio) la duración de la animación (0.25s) entre la longitud del enlace, multiplicada por la letra actual ($i).
+            delay: calc(1.25s - calc(calc(0.25s /  10) * #{$i}))
+            timing-function: linear
+            iteration-count: infinite
+
+// Función recursiva para la animación del segundo enlace
+@for $i from 1 through 9
+    // Por cada letra del enlace:
+    .trabajos__item-enlace--segundo > span:nth-child(#{$i})
+        // Lo reseteamos a su estado base
+        z-index: -90
+        opacity: 0%
+        // Le asignamos su correspondiente animación
+        animation:
+            name: trabajos-enlace-otros
+            duration: 8s
+            // El delay se calcula con 1.75s de base: 1.25s para no solaparse con el primer enlace y 0.5s para respetar los tiempos del estado de transición (explicado al principio del documento).
+            // A este delay base se le resta (para que vaya del final al principio) la duración de la animación (0.25s) entre la longitud del enlace, multiplicada por la letra actual ($i).
+            delay: calc(1.75s - calc(calc(0.25s /  9) * #{$i}))
+            timing-function: linear
+            iteration-count: infinite
+
+// Función recursiva para la animación del tercer enlace
+@for $i from 1 through 13
+    // Por cada letra del enlace:
+    .trabajos__item-enlace--tercero > span:nth-child(#{$i})
+        // Lo reseteamos a su estado base
+        z-index: -90
+        opacity: 0%
+        // Le asignamos su correspondiente animación
+        animation:
+            name: trabajos-enlace-otros
+            duration: 8s
+            // El delay se calcula con 3.75s de base: 1.75s para no solaparse con el anterior enlace y 2s para respetar los tiempos del estado estático.
+            // A este delay base se le resta (para que vaya del final al principio) la duración de la animación (0.25s) entre la longitud del enlace, multiplicada por la letra actual ($i).
+            delay: calc(3.75s - calc(calc(0.25s /  13) * #{$i}))
+            timing-function: linear
+            iteration-count: infinite
+
+// Función recursiva para la animación del cuarto enlace
+@for $i from 1 through 8
+    // Por cada letra del enlace:
+    .trabajos__item-enlace--cuarto > span:nth-child(#{$i})
+        // Lo reseteamos a su estado base
+        z-index: -90
+        opacity: 0%
+        // Le asignamos su correspondiente animación
+        animation:
+            name: trabajos-enlace-otros
+            duration: 8s
+            // El delay se calcula con 5.75s de base: 3.75s para no solaparse con los anteriores enlaces y 2s para respetar los tiempos del estado estático.
+            // A este delay base se le resta (para que vaya del final al principio) la duración de la animación (0.25s) entre la longitud del enlace, multiplicada por la letra actual ($i).
+            delay: calc(5.75s - calc(calc(0.25s /  8) * #{$i}))
+            timing-function: linear
+            iteration-count: infinite
+
+
+// ------------------------- Animaciones de las imágenes de la sección trabajos del landing
+// Los porcentajes de las animaciones se basan en una duración de 8s (ciclo completo de los 4 trabajos que existen). Los 8s nacen de la suma del tiempo estático y del tiempo de transición, sumados y multiplicados por el número de trabajos [(1.25s + 0.75s) * 4].
+// El estado estático (cuánto dura el trabajo en pantalla) es de 1.25s.
+// El estado de transición (cuánto dura el cambio entre un trabajo y otro) es de 0.75s. Las imágenes de deslizan a través de la pantalla 4 veces, por lo que cada deslizamiento dura 0.1875s.
+
+// Animación de la primera imagen
+@keyframes trabajos-imagen-primero
+    // Al inicio, se posiciona en su posición original
+    0%
+        transform: translate(0%, 0%)
+    // A los 0.1875s de la animación, se ha deslizado hacia arriba.
+    2.34375%
+        transform: translate(-10%, -100vh)
+    // Inmediatamente después, se reposiciona abajo para prepararse para el siguiente ciclo de la animación.
+    2.34376%
+        transform: translate(-10%, 100vh)
+    // Se mantiene abajo hasta los 6.1875s de la animación
+    77.34375%
+        transform: translate(-10%, 100vh)
+    // A los 6.375s de la animación, se ha deslizado hacia arriba por primera vez.
+    79.6875%
+        transform: translate(-10%, -100vh)
+    // Inmediatamente después, se reposiciona abajo para prepararse para el siguiente deslizamiento.
+    79.6876%
+        transform: translate(-10%, 100vh)
+    // A los 6.5625s de la animación, se ha deslizado hacia arriba por segunda vez.
+    82.03125%
+        transform: translate(-12%, -100vh)
+    // Inmediatamente después, se reposiciona abajo para prepararse para el siguiente deslizamiento.
+    82.03126%
+        transform: translate(-12%, 100vh)
+    // A los 6.75s de la animación, se ha deslizado hacia arriba por tercera vez.
+    84.375%
+        transform: translate(-15%, -100vh)
+    // Inmediatamente después, se reposiciona abajo para prepararse para el siguiente deslizamiento.
+    84.376%
+        transform: translate(0%, 100vh)
+    // Finalmente, se desliza hacia su posición visible
+    86.71875%
+        transform: translate(0%, 0%)
+
+// Animación del resto de las imágenes
+@keyframes trabajos-imagen-otros
+    0%
+        transform: translate(-10%, 100vh)
+    2.34375%
+        transform: translate(-10%, -100vh)
+    2.34376%
+        transform: translate(-12%, 100vh)
+    4.6875%
+        transform: translate(-12%, -100vh)
+    4.6876%
+        transform: translate(-15%, 100vh)
+    7.03125%
+        transform: translate(-15%, -100vh)
+    7.03126%
+        transform: translate(0%, 100vh)
+    9.375%
+        transform: translate(0%, 0%)
+    25%
+        transform: translate(0%, 0%)
+    27.34375%
+        transform: translate(-10%, -100vh)
+    27.34376%
+        transform: translate(-10%, 100vh)

@@ -1,0 +1,65 @@
+@use "abstracts" as *
+
+.footer
+    background-color: $color-negro
+
+.container__footer
+    box-sizing: border-box
+    margin: 0 auto
+    max-width: $global-layout-max-width
+    padding: $global-layout-padding
+
+.footer
+    // Flex
+    &__flex-wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+    // Logo
+    &__logo-enlace, &__logo-icono
+        display: block
+        width: 15rem
+    // Social
+    &__social
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        gap: $gap--s
+        width: 15rem
+        &-texto
+            color: $color-blanco
+            margin: 0
+        ul
+            display: flex
+            align-items: center
+            gap: $gap--m
+            padding: 0
+            margin: 0
+            li
+                list-style: none
+                a
+                    img
+                        width: $icono--width
+    &__contacta-wrapper
+        display: flex
+        justify-content: center
+        width: 15rem
+    &__contacta
+        color: $color-negro
+        background-color: $color-blanco
+        padding-inline: $gap--ml
+        padding-block: $gap--s
+        text:
+            decoration: none
+            transform: uppercase
+        font:
+            size: $fs--s
+            weight: 600
+    &__copyright
+        color: darken($color-blanco, 25%)
+        text-align: center
+        margin-top: $gap--ml
+        font:
+            size: $fs--xs
+            weight: 300

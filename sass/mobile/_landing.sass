@@ -1,0 +1,52 @@
+@use 'abstracts' as *
+// ------------------------- Componentes
+.line-break-mobile
+    display: block
+
+// Contacta
+.container__contacta
+    flex-direction: column
+
+// ------------------------- Hero
+.hero
+    // Social
+    &__social
+        grid-row: 2/3
+        justify-content: flex-end
+        &-linea-vertical
+            display: none
+        &-redes
+            gap: $gap--xs
+    // Nombre y profesión
+    &__nombre
+        grid-column: 1/3
+    // Frase
+    &__frase
+        margin-bottom: $gap--xs
+// _________________________ Fin Hero
+
+// ------------------------- Trabajos
+.trabajos__imagen
+    justify-self: center
+    margin: 0
+// _________________________ Trabajos
+
+// ------------------------- Sobre mi
+.container__sobre-mi
+    grid:
+        template-areas: "titulo" "imagen" "texto" "enlace"
+        template-columns: 1fr
+        template-rows: repeat(4, fit-content)
+    gap: $gap--s
+
+.sobre-mi
+    &__titulo
+        grid-area: titulo
+    &__imagen
+        grid-area: imagen
+        margin: 0 auto
+    &__texto
+        grid-area: texto
+    &__enlace
+        grid-area: enlace
+// _________________________ Fin Sobre mi
